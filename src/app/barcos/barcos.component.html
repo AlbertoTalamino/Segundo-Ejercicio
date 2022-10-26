@@ -1,0 +1,13 @@
+
+<h2>Mis Barcos</h2>
+<ul class="barcos">
+  <li *ngFor="let barco of barcos">
+    <button [class.selected]="barco === selectedBarco" type="button" (click)="onSelect(barco)">
+      <span class="name">{{barco.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<app-barcos-details [barco]="selectedBarco"></app-barcos-details>
+
+

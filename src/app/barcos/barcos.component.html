@@ -1,13 +1,11 @@
-
 <h2>Mis Barcos</h2>
-<ul class="barcos">
+<ul class="barco">
   <li *ngFor="let barco of barcos">
-    <button [class.selected]="barco === selectedBarco" type="button" (click)="onSelect(barco)">
+    <a routerLink="/detail/{{barco.id}}">
       <span class="name">{{barco.name}}</span>
-    </button>
+    </a>
   </li>
 </ul>
 
-<app-barcos-details [barco]="selectedBarco"></app-barcos-details>
 
 

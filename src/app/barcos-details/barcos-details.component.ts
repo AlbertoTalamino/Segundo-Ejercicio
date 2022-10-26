@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Barco } from 'src/barco';
+import { Location } from '@angular/common';
+import { BarcoService } from '../barco.service'; 
 
 @Component({
   selector: 'app-barcos-details',
@@ -8,11 +11,25 @@ import { Barco } from 'src/barco';
 })
 export class BarcosDetailsComponent implements OnInit {
 
-  @Input() barco?: Barco;
+  barco?: Barco;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private BarcoService: BarcoService,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
+    this.getBarcos();
+  }
+  
+  getBarcos(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.BarcoService.getBarco(id)
+      .subscribe((barco: Barco | undefined) => this.barco = barco);
   }
 
+  goBack(): void {
+    this.location.back();
+  }
 }

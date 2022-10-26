@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { BarcosComponent } from './barcos/barcos.component';
 import { BarcosDetailsComponent } from './barcos-details/barcos-details.component';
 import { FormsModule } from '@angular/forms';
+import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BarcosComponent,
-    BarcosDetailsComponent
+    BarcosDetailsComponent,
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
